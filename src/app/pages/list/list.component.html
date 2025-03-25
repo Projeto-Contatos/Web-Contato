@@ -34,6 +34,13 @@
                             {{ contato.ativo === 'S' ? 'Ativo' : 'Inativo' }}
                         </span>
                     </td>
+                    <td class="flex gap-2.5 justify-center items-center pt-2.5 pb-2.5">
+                        <app-button [buttonType]="'success'">Editar</app-button>
+                        <app-button [buttonType]="contato.ativo === 'S' ? 'danger' : 'success'"
+                            (click)="alternarStatusContato(contato.id)">
+                            {{ contato.ativo === 'S' ? 'Inativar' : 'Reativar' }}
+                        </app-button>
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -9,6 +9,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './button.component.css'
 })
 export class ButtonComponent {
-  @Input() buttonType: 'primary' | 'secondary' | 'default' = 'primary';
+  @Input() buttonType: 'primary' | 'secondary' | 'danger' | 'success' = 'primary';
   @Input() routerLink?: string;
 }
