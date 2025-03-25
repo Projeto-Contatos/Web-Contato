@@ -6,11 +6,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ContatoService {
-  private apiUrl = 'http://localhost:8080/contato/create';
+  private apiUrl = 'http://localhost:8080/contato';
 
   constructor(private http: HttpClient) { }
 
   criarContato(contatoData: any): Observable<any> {
-    return this.http.post(this.apiUrl, contatoData);
+    return this.http.post(`${this.apiUrl}/create`, contatoData);
+  }
+
+  listarContatos(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/list`);
   }
 }

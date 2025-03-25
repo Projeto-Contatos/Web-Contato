@@ -1,11 +1,27 @@
 import { Component } from '@angular/core';
+import { ContatoService } from '../../services/contato.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-list',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
 export class ListComponent {
+  contatos: any[] = [];
 
+  constructor(private contatoService: ContatoService) { }
+
+  ngOnInit(): void {
+    this.carregarContatos();
+  }
+
+  carregarContatos(): void {
+    this.contatoService.listarContatos().subscribe({
+      next: (data) => this.contatos = data,
+      error: (err) => console.error('Erro ao carregar contatos:', err)
+    });
+  }
 }
