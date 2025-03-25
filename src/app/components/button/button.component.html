@@ -1,0 +1,6 @@
+<button class="w-full px-4 py-2 outline-none cursor-pointer font-semibold rounded-lg shadow-md" [ngClass]="{
+        'bg-gray-600 text-white hover:bg-gray-700': buttonType === 'primary',
+        'bg-transparent text-gray-600 border border-gray-600 hover:text-gray-200 hover:border-gray-700 hover:bg-gray-700': buttonType === 'secondary'
+      }">
+  <ng-content></ng-content>
+</button>
