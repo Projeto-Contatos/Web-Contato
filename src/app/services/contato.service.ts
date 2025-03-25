@@ -21,4 +21,8 @@ export class ContatoService {
   toggleAtivo(id: number): Observable<any> {
     return this.http.patch(`${this.apiUrl}/ativo/${id}`, {});
   }
+
+  atualizarContato(id: number): Observable<any> {
+    return this.http.put(`${this.apiUrl}/update/${id}`, {});
+  }
 }
