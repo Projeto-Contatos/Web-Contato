@@ -18,11 +18,19 @@ export class ContatoService {
     return this.http.get(`${this.apiUrl}/list`);
   }
 
+  favoritarContato(id: number): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/favorito/${id}`, {});
+  }
+
   toggleAtivo(id: number): Observable<any> {
     return this.http.patch(`${this.apiUrl}/ativo/${id}`, {});
   }
 
-  atualizarContato(id: number): Observable<any> {
-    return this.http.put(`${this.apiUrl}/update/${id}`, {});
+  atualizarContato(id: number, contatoData: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/update/${id}`, contatoData);
+  }
+
+  buscarPorCelular(celular: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${celular}`);
   }
 }
